@@ -1,5 +1,6 @@
 <!-- boostrap icon -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+
 <!-- basic -->
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -20,7 +21,7 @@
 <!-- responsive css -->
 <link rel="stylesheet" href="{{ asset('assets/css/responsive.css') }}" />
 <!-- color css -->
-{{--
+
 <link rel="stylesheet" href="{{asset('assets/css/color_2.css')}}" /> --}}
 <!-- select bootstrap -->
 <link rel="stylesheet" href="{{ asset('assets/css/bootstrap-select.css') }}" />

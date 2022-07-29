@@ -10,6 +10,6 @@ class Berita extends Model
     use HasFactory;
 
      public function rt() {
-        return $this->belongsOne(Rt::class);
+        return $this->belongsTo(Rt::class);
     }
 }

@@ -1,6 +1,11 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\RtController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\BeritaController;
+use App\Http\Controllers\PendudukController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,3 +29,21 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/tes_admin', function () {
     return view('layouts.admin');
 });
+
+Route::group(['prefix' => 'adminrw'], function () {
+    Route::get('/', function () {
+        return view('admin.index')-name('rw_home');
+    });
+    Route::resource('/berita', BeritaController::class);
+    Route::resource('/rt', RtController::class);
+    
+});
+
+Route::group(['prefix' => 'admin-rt'], function () {
+    Route::get('/', function () {
+        return view('admin.index');
+    });
+    Route::resource('/penduduk', PendudukController::class);
+    
+});
+

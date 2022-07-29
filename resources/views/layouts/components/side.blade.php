@@ -19,13 +19,23 @@
         </div>
     </div>
     <div class="sidebar_blog_2">
-        <h4>Halaman Admin Rw</h4>
         <ul class="list-unstyled components">
-        
-            <li><a href="#"><i class="fa fa-newspaper-o green_color2"></i> <span>Berita</span></a></li>
-            <li><a href="#"><i class="fa fa-user blue_color2"></i>
-                    <span>Tabel Rt</span></a>
-            </li>
+            @if (Auth::user()->role->slug === 'admin-rw')
+                <h4>Halaman Admin Rw</h4>
+                <li><a href="{{ route('berita.index') }}"><i class="fa fa-newspaper-o green_color2"></i>
+                        <span>Berita</span></a></li>
+                <li><a href="{{ route('rt.index') }}"><i class="fa fa-user blue_color2"></i>
+                        <span>Tabel Rt</span></a>
+                </li>
+                @elseif(Auth::user()->role->slug === 'admin-rt')
+                <h4>Halaman Admin RT</h4>
+                {{-- <li><a href="{{ route('berita.index') }}"><i class="fa fa-newspaper-o green_color2"></i>
+                    <span>Berita</span></a></li> --}}
+                    <li><a href="{{ route('penduduk.index') }}"><i class="fa fa-user blue_color2"></i>
+                        <span>Penduduk</span></a>
+                    </li>
+                    @endif
+
         </ul>
     </div>
 </nav>

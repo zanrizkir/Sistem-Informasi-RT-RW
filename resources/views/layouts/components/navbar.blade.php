@@ -9,7 +9,7 @@
             <div class="right_topbar">
                 <div class="icon_info">
                     <ul>
-
+                        {{-- <p>Kebon Lega II</p> --}}
                     </ul>
                     <ul class="user_profile_dd">
                         <li>

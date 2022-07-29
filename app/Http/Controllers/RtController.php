@@ -14,7 +14,12 @@ class RtController extends Controller
      */
     public function index()
     {
-        //
+        {
+        //menampilkan semua data dari model Siswa
+        $rt = Rt::all();
+        // $active = 'siswa';
+        return view('admin.rt.index', compact('rt'));
+    }
     }
 
     /**
