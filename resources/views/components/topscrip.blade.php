@@ -22,13 +22,17 @@
 <link rel="stylesheet" href="{{ asset('assets/css/responsive.css') }}" />
 <!-- color css -->
 
-<link rel="stylesheet" href="{{asset('assets/css/color_2.css')}}" /> --}}
+{{-- <link rel="stylesheet" href="{{asset('assets/css/color_2.css')}}" />  --}}
 <!-- select bootstrap -->
 <link rel="stylesheet" href="{{ asset('assets/css/bootstrap-select.css') }}" />
 <!-- scrollbar css -->
 <link rel="stylesheet" href="{{ asset('assets/css/perfect-scrollbar.css') }}" />
 <!-- custom css -->
 <link rel="stylesheet" href="{{ asset('assets/css/custom.css') }}" />
+<!-- calendar file css -->
+<link rel="stylesheet" href="{{ asset('assets/js/semantic.min.css')}}" />
+<!-- fancy box js -->
+<link rel="stylesheet" href="{{ asset('assets/css/jquery.fancybox.css') }}" />
 <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js')}}"></script>

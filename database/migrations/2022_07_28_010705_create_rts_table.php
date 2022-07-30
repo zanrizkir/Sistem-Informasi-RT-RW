@@ -15,7 +15,7 @@ class CreateRtsTable extends Migration
     {
         Schema::create('rts', function (Blueprint $table) {
             $table->id();
-            $table->integer('rt');
+            $table->integer('rt')->unique();
             $table->string('nama');
             $table->enum('jk',['Laki-laki','Perempuan']);
             $table->date('tanggal_lahir');

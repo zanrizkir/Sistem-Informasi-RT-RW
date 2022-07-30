@@ -1,65 +1,114 @@
-@extends('layouts.admin')
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-
+    @include('components.topscrip')
+      <style>
+        .bayangan {
+            box-shadow: 5px 4px 5px ;
+        }
+      </style>
 </head>
 
 <body class="inner_page tables_page">
+    <div class="full_container">
+        <div class="inner_container">
+            <!-- Sidebar  -->
+            @include('layouts.components.side')
+            <!-- end sidebar -->
+            <!-- right content -->
+            <div id="content">
+                <!-- topbar -->
+                @include('layouts.components.navbar')
+                <!-- end topbar -->
+                <!-- dashboard inner -->
+                <div class="midde_cont">
+                    <div class="container-fluid">
+                        <br><br><br>
+                        <!-- row -->
+                        <div class="row">
+                            <!-- table section -->
+
+                            <!-- table section -->
+
+                            <!-- table section -->
+
+                            <!-- table section -->
+
+                            <!-- table section -->
+
+                            <!-- table section -->
+
+                            <!-- table section -->
+
+                            <!-- table section -->
 
                             <!-- table section -->
                             <div class="col-md-12">
-                                <div class="white_shd full margin_bottom_30">
+                                <div class="white_shd full margin_bottom_30 bayangan">
                                     <div class="full graph_head">
                                         <div class="heading1 margin_0">
-                                            <h2>Responsive Tables</h2>
+                                            <h2>Data Rt</h2>
                                         </div>
                                     </div>
                                     <div class="table_section padding_infor_info">
                                         <div class="table-responsive-sm">
                                             <table class="table">
-                                                <thead>
+                                                <thead class='thead-dark'>
                                                     <tr>
-                                                        <th>#</th>
-                                                        <th>Firstname</th>
-                                                        <th>Lastname</th>
-                                                        <th>Age</th>
-                                                        <th>City</th>
-                                                        <th>Country</th>
-                                                        <th>Sex</th>
-                                                        <th>Example</th>
-                                                        <th>Example</th>
-                                                        <th>Example</th>
-                                                        <th>Example</th>
+                                                        <th>No</th>
+                                                        <th>Rt</th>
+                                                        <th>Nama</th>
+                                                        <th>Jenis Kelamin</th>
+                                                        <th>Tanggal Lahir</th>
+                                                        <th>Agama</th>
+                                                        <th>Action</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr>
-                                                        <td>1</td>
-                                                        <td>Anna</td>
-                                                        <td>Pitt</td>
-                                                        <td>35</td>
-                                                        <td>New York</td>
-                                                        <td>USA</td>
-                                                        <td>Female</td>
-                                                        <td>Yes</td>
-                                                        <td>Yes</td>
-                                                        <td>Yes</td>
-                                                        <td>Yes</td>
-                                                    </tr>
+                                                    @php $no = 1; @endphp
+                                                    @foreach ($rt as $data)
+                                                        <tr class="table-dark text-dark">
+                                                            <td>{{ $no++ }}</td>
+                                                            <td>{{$data->rt}} </td>
+                                                            <td>{{$data->nama}} </td>
+                                                            <td>{{$data->jk}} </td>
+                                                            <td>{{$data->tanggal_lahir}} </td>
+                                                            <td>{{$data->agama}} </td>
+                                                            <td>
+                                                                <form action="{{ route('rt.destroy', $data->id) }}"
+                                                                    method="post">
+                                                                    @csrf
+                                                                    @method('delete')
+                                                                    <a href="{{ route('rt.edit', $data->id) }}"
+                                                                        class="btn btn-sm btn-outline-success fa fa-pencil-square-o">
+                                                                        
+                                                                    </a> |
+                                                                    <a href="{{ route('rt.show', $data->id) }}"
+                                                                        class="btn btn-sm btn-outline-warning fa fa-eye">
+                                                                        
+                                                                    </a> |
+                                                                    <button type="submit"
+                                                                        class="btn btn-sm btn-outline-danger fa fa-trash-o"
+                                                                        onclick="return confirm('Apakah Anda Yakin?')">
+                                                                        {{-- <i class="fa fa-user blue_color2"></i> --}}
+                                                                        
+                                                                    </button>
+                                                                </form>
+                                                            </td>
+                                                        </tr>
+                                                        @endforeach
                                                 </tbody>
                                             </table>
+                                        </div>
+                                        <div>
+                                            <a href="{{ route('rt.create') }}" class="btn btn-sm btn-primary" style="float: right">
+                                                Tambah Data
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <!-- footer -->
-                    <div class="container-fluid">
-                        <div class="footer">
-                            <p>Copyright © 2018 Designed by html.design. All rights reserved.</p>
                         </div>
                     </div>
                 </div>
@@ -68,7 +117,7 @@
         </div>
         <!-- model popup -->
         <!-- The Modal -->
-        <div class="modal fade" id="myModal">
+        {{-- <div class="modal fade" id="myModal">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <!-- Modal Header -->
@@ -86,36 +135,11 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
         <!-- end model popup -->
     </div>
     <!-- jQuery -->
-    <script src="js/jquery.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <!-- wow animation -->
-    <script src="js/animate.js"></script>
-    <!-- select country -->
-    <script src="js/bootstrap-select.js"></script>
-    <!-- owl carousel -->
-    <script src="js/owl.carousel.js"></script>
-    <!-- chart js -->
-    <script src="js/Chart.min.js"></script>
-    <script src="js/Chart.bundle.min.js"></script>
-    <script src="js/utils.js"></script>
-    <script src="js/analyser.js"></script>
-    <!-- nice scrollbar -->
-    <script src="js/perfect-scrollbar.min.js"></script>
-    <script>
-        var ps = new PerfectScrollbar('#sidebar');
-    </script>
-    <!-- fancy box js -->
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/jquery.fancybox.min.js"></script>
-    <!-- custom js -->
-    <script src="js/custom.js"></script>
-    <!-- calendar file css -->
-    <script src="js/semantic.min.js"></script>
+    @include('components.bottomscrip')
 </body>
 
 </html>
