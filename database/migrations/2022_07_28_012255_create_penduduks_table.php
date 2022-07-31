@@ -17,12 +17,14 @@ class CreatePenduduksTable extends Migration
             $table->id();
             $table->string('nik');
             $table->string('nama');
+            $table->string('tempat_lahir');
+            $table->date('tanggal_lahir');
             $table->enum('jk',['Laki-laki','Perempuan']);
             $table->string('alamat');
             $table->enum('agama', ['Islam', 'Kristen', 'Katolik', 'Hindu', 'Budha']);
             $table->enum('statuh_nikah',['Nikah','Belum Nikah']);
             $table->enum('Pendidikan', ['SD', 'SMP', 'SMA/K', 'S1', 'S2','S3']);
-            $table->string('pekerjaan');
+            $table->string('pekerjaan');        
             $table->enum('gol_darah', ['A', 'B', 'AB', 'O']);
             $table->unsignedBigInteger('id_rt');
             $table->foreign('id_rt')->references('id')->on('rts');
