@@ -15,13 +15,16 @@ class CreateRtsTable extends Migration
     {
         Schema::create('rts', function (Blueprint $table) {
             $table->id();
+            $table
+                ->unsignedBigInteger('id_user')
+                ->references('id')
+                ->on('users');
             $table->integer('rt')->unique();
             $table->string('nama');
-            $table->enum('jk',['Laki-laki','Perempuan']);
+            $table->enum('jk', ['Laki-laki', 'Perempuan']);
             $table->date('tanggal_lahir');
-            $table->enum('agama',['Islam','Kristen','Katolik','Hindu','Budha']);
-            $table->string('email')->unique();
-            $table->string('password');
+            $table->enum('agama', ['Islam', 'Kristen', 'Katolik', 'Hindu', 'Budha']);
+            $table->string('image');
             $table->timestamps();
         });
     }

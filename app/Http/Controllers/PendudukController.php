@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Penduduk;
+use App\Models\Rt;
 use Illuminate\Http\Request;
 
 class PendudukController extends Controller
@@ -15,8 +16,10 @@ class PendudukController extends Controller
     public function index()
     {
         $penduduk = Penduduk::all();
+        $rt = Rt::firstWhere('id_user', auth()->user()->id)->get();
+        // $rt = Rt::where('id_user', auth()->user()->id)->get();
         // $active = 'siswa';
-        return view('admin.penduduk.index', compact('penduduk'));
+        return view('admin.penduduk.index', compact('penduduk', 'rt'));
     }
 
     /**

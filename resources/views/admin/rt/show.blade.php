@@ -1,65 +1,124 @@
-@extends('layouts.admin')
+<!DOCTYPE html>
+<html lang="en">
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-12">
-            @include('layouts/_flash')
-            <div class="card">
-                <div class="card-header">
-                    Data Siswa
-                </div>
-                <div class="card-body">
-                    <form action="{{ route('siswa.store') }}" method="post">
-                        @csrf
-                        <div class="mb-3">
-                            <label class="form-label">Nomor Induk Siswa</label>
-                            <input type="text" class="form-control  @error('nis') is-invalid @enderror" name="nis">
-                            @error('nis')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
+<head>
+    @include('components.topscrip')
+    <style>
+        .bayangan {
+            box-shadow: 5px 4px 5px;
+        }
+    </style>
+</head>
+
+<body class="inner_page tables_page">
+    <div class="full_container">
+        <div class="inner_container">
+            <!-- Sidebar  -->
+            @include('layouts.components.side')
+            <!-- end sidebar -->
+            <!-- right content -->
+            <div id="content">
+                <!-- topbar -->
+                @include('layouts.components.navbar')
+                <!-- end topbar -->
+                <!-- dashboard inner -->
+                <div class="midde_cont">
+                  <div class="container-fluid">
+                     <div class="row column_title">
+                        <div class="col-md-12">
+                           <div class="page_title">
+                              <h2>Profile</h2>
+                           </div>
                         </div>
-                        <div class="mb-3">
-                            <label class="form-label">Nama</label>
-                            <input type="text" class="form-control  @error('nama_siswa') is-invalid @enderror"
-                                name="nama_siswa">
-                            @error('nama_siswa')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
+                     </div>
+                     <!-- row -->
+                     <div class="row column1">
+                        <div class="col-md-2"></div>
+                        <div class="col-md-8">
+                           <div class="white_shd full margin_bottom_30">
+                              <div class="full graph_head">
+                                 <div class="heading1 margin_0">
+                                    <h2>User profile</h2>
+                                 </div>
+                              </div>
+                              <div class="full price_table padding_infor_info">
+                                 <div class="row">
+                                    <!-- user profile section --> 
+                                    <!-- profile image -->
+                                    <div class="col-lg-12">
+                                       <div class="full dis_flex center_text">
+                                          <div class="profile_img"><img width="180" class="rounded-circle" src="{{ asset('/images/profile/' . $rt->image)}}" alt="#" /></div>
+                                          <div class="profile_contant">
+                                             <div class="contact_inner">
+                                                <h3>{{$rt->nama }}</h3>
+                                                <table>
+                                                   <tr>
+                                                      <td><p><strong>Ketua Rt</strong></p></td>
+                                                      <td><p><strong> : </strong></p></td>
+                                                      <td><p><strong>{{$rt->rt}} </strong></p></td>
+                                                   </tr>
+                                                   <tr>
+                                                      <td><p><strong>Jenis Kelamin</strong></p></td>
+                                                      <td><p><strong> : </strong></p></td>
+                                                      <td><p><strong>{{$rt->jk}} </strong></p></td>
+                                                   </tr>
+                                                   <tr>
+                                                      <td><p><strong>Tanggal Lahir</strong></p></td>
+                                                      <td><p><strong> : </strong></p></td>
+                                                      <td><p><strong>{{$rt->tanggal_lahir}} </strong></p></td>
+                                                   </tr>
+                                                   <tr>
+                                                      <td><p><strong>Agama</strong></p></td>
+                                                      <td><p><strong> : </strong></p></td>
+                                                      <td><p><strong>{{$rt->agama}} </strong></p></td>
+                                                   </tr>
+                                                </table>
+                                             </div>
+                                             
+                                          </div>
+                                       </div>
+                                       <div class="button_block"><a href="{{ route('rt.index') }}" class="btn cur-p btn-outline-primary">Kembali</a></div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="col-md-2"></div>
                         </div>
-                        <div class="mb-3">
-                            <label class="form-label">Alamat</label>
-                            <textarea class="form-control  @error('alamat_siswa') is-invalid @enderror"
-                                name="alamat_siswa"></textarea>
-                            @error('alamat_siswa')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Tanggal Lahir</label>
-                            <input type="date" class="form-control  @error('tanggal_lahir') is-invalid @enderror"
-                                name="tanggal_lahir">
-                            @error('tanggal_lahir')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                        </div>
-                        <div class="mb-3">
-                            <div class="d-grid gap-2">
-                                <button class="btn btn-primary" type="submit">Save</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
+                        <!-- end row -->
+                     </div>
+                     <!-- footer -->
+                     
+                  </div>
+                  <!-- end dashboard inner -->
+               </div>
+                <!-- end dashboard inner -->
             </div>
         </div>
+        <!-- model popup -->
+        <!-- The Modal -->
+        {{-- <div class="modal fade" id="myModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">Modal Heading</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        Modal body..
+                    </div>
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div> --}}
+        <!-- end model popup -->
     </div>
-</div>
-@endsection
+    <!-- jQuery -->
+    @include('components.bottomscrip')
+</body>
+
+</html>

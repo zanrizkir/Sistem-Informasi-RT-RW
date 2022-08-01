@@ -9,13 +9,23 @@ class Rt extends Model
 {
     use HasFactory;
 
-    public function rt() {
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function rt()
+    {
         return $this->hasOne(Rt::class);
     }
-    public function berita() {
+
+    public function berita()
+    {
         return $this->hasMany(Berita::class);
     }
-    public function penduduk() {
+
+    public function penduduk()
+    {
         return $this->hasMany(Penduduk::class);
     }
 }

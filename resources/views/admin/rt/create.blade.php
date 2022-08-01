@@ -33,67 +33,79 @@
                                         {{-- @include('layouts/_flash') --}}
                                         <div class="card">
                                             <div class="card-header">
-                                                Data RT
+                                                <strong>
+                                                    Data RT
+                                                </strong>
                                             </div>
                                             <div class="card-body">
-                                                <form action="{{ route('rt.store') }}" method="post">
+                                                <form action="{{ route('rt.store') }}" method="post"
+                                                    enctype="multipart/form-data">
                                                     @csrf
                                                     <div class="mb-3">
-                                                        <label class="form-label">rt</label>
-                                                        <input type="number" class="form-control  @error('rt') is-invalid @enderror" name="rt">
+                                                        <label class="form-label"><b> Rt </b></label>
+                                                        <input type="number"
+                                                            class="form-control  @error('rt') is-invalid @enderror"
+                                                            name="rt">
                                                         @error('rt')
-                                                        <span class="invalid-feedback" role="alert">
-                                                            <strong>{{ $message }}</strong>
-                                                        </span>
+                                                            <span class="invalid-feedback" role="alert">
+                                                                <strong>{{ $message }}</strong>
+                                                            </span>
                                                         @enderror
                                                     </div>
                                                     <div class="mb-3">
                                                         <label class="form-label">Nama</label>
-                                                        <input type="text" class="form-control  @error('nama') is-invalid @enderror" name="nama">
+                                                        <input type="text"
+                                                            class="form-control  @error('nama') is-invalid @enderror"
+                                                            name="nama">
                                                         @error('nama')
-                                                        <span class="invalid-feedback" role="alert">
-                                                            <strong>{{ $message }}</strong>
-                                                        </span>
+                                                            <span class="invalid-feedback" role="alert">
+                                                                <strong>{{ $message }}</strong>
+                                                            </span>
                                                         @enderror
                                                     </div>
-                            
+
                                                     <div class="mb-3">
                                                         <label class="form-label">Jenis Kelamin</label>
                                                         <div class="form-check">
-                                                            <input class="form-check-input @error('jk') is-invalid @enderror" type="radio" name="jk"
-                                                                value="Laki-laki">
+                                                            <input
+                                                                class="form-check-input @error('jk') is-invalid @enderror"
+                                                                type="radio" name="jk" value="Laki-laki">
                                                             <label class="form-check-label">
                                                                 Laki-laki
                                                             </label>
                                                         </div>
                                                         <div class="form-check">
-                                                            <input class="form-check-input @error('jk') is-invalid @enderror" type="radio" name="jk"
-                                                                value="Perempuan">
+                                                            <input
+                                                                class="form-check-input @error('jk') is-invalid @enderror"
+                                                                type="radio" name="jk" value="Perempuan">
                                                             <label class="form-check-label">
                                                                 Perempuan
                                                             </label>
                                                         </div>
                                                         @error('jk')
-                                                        <span class="invalid-feedback" role="alert">
-                                                            <strong>{{ $message }}</strong>
-                                                        </span>
+                                                            <span class="invalid-feedback" role="alert">
+                                                                <strong>{{ $message }}</strong>
+                                                            </span>
                                                         @enderror
                                                     </div>
-                            
+
                                                     <div class="mb-3">
                                                         <label class="form-label">Tanggal Lahir</label>
-                                                        <input type="date" class="form-control  @error('tanggal_lahir') is-invalid @enderror"
+                                                        <input type="date"
+                                                            class="form-control  @error('tanggal_lahir') is-invalid @enderror"
                                                             name="tanggal_lahir">
                                                         @error('tanggal_lahir')
-                                                        <span class="invalid-feedback" role="alert">
-                                                            <strong>{{ $message }}</strong>
-                                                        </span>
+                                                            <span class="invalid-feedback" role="alert">
+                                                                <strong>{{ $message }}</strong>
+                                                            </span>
                                                         @enderror
                                                     </div>
-                            
+
                                                     <div class="mb-3">
                                                         <label class="form-label">Agama</label>
-                                                        <select class="form-control @error('agama') is-invalid @enderror" name="agama">
+                                                        <select
+                                                            class="form-control @error('agama') is-invalid @enderror"
+                                                            name="agama">
                                                             <option selected>Pilih Salah Satu</option>
                                                             <option value="Islam">Islam</option>
                                                             <option value="Kristen">Kristen</option>
@@ -102,40 +114,54 @@
                                                             <option value="Budha">Budha</option>
                                                         </select>
                                                         @error('agama')
+                                                            <span class="invalid-feedback" role="alert">
+                                                                <strong>{{ $message }}</strong>
+                                                            </span>
+                                                        @enderror
+                                                    </div>
+
+                                                    <div class="mb-3">
+                                                        <label class="form-label">Foto</label>
+                                                        <input type="file"
+                                                            class="form-control  @error('image') is-invalid @enderror"
+                                                            name="image">
+                                                        @error('image')
+                                                            <span class="invalid-feedback" role="alert">
+                                                                <strong>{{ $message }}</strong>
+                                                            </span>
+                                                        @enderror
+                                                    </div>
+
+                                            <div class="mb-3">
+                                                    <label class="form-label">Email</label>
+                                                    <input type="email"
+                                                        class="form-control  @error('email') is-invalid @enderror"
+                                                        name="email">
+                                                    @error('email')
                                                         <span class="invalid-feedback" role="alert">
                                                             <strong>{{ $message }}</strong>
                                                         </span>
-                                                        @enderror
-                                                    </div>
-                            
-                                                    <div class="mb-3">
-                                                        <label class="form-label">Email</label>
-                                                        <input type="email" class="form-control  @error('email') is-invalid @enderror" name="email">
-                                                        @error('email')
-                                                        <span class="invalid-feedback" role="alert">
-                                                            <strong>{{ $message }}</strong>
-                                                        </span>
-                                                        @enderror
-                                                    </div>
-                            
-                                                    <div class="mb-3">
-                                                        <label class="form-label">Password</label>
-                                                        <input type="password" class="form-control  @error('password') is-invalid @enderror"
-                                                            name="password">
-                                                        @error('password')
-                                                        <span class="invalid-feedback" role="alert">
-                                                            <strong>{{ $message }}</strong>
-                                                        </span>
-                                                        @enderror
-                                                    </div>
-                            
-                                                    <div class="mb-3">
-                                                        <div class="d-grid gap-2">
-                                                            <button class="btn btn-primary" type="submit">Save</button>
-                                                        </div>
-                                                    </div>
-                                                </form>
+                                                    @enderror
                                             </div>
+
+                                            <div class="mb-3">
+                                                <label class="form-label">Password</label>
+                                                <input type="password"
+                                                    class="form-control  @error('password') is-invalid @enderror"
+                                                    name="password">
+                                                @error('password')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+                                            </div>
+
+                                            <div class="mb-3">
+                                                <div class="d-grid gap-2">
+                                                    <button class="btn btn-primary" type="submit">Save</button>
+                                                </div>
+                                            </div>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>
@@ -143,12 +169,13 @@
                         </div>
                     </div>
                 </div>
-                <!-- end dashboard inner -->
             </div>
+            <!-- end dashboard inner -->
         </div>
-        <!-- model popup -->
-        <!-- The Modal -->
-        {{-- <div class="modal fade" id="myModal">
+    </div>
+    <!-- model popup -->
+    <!-- The Modal -->
+    {{-- <div class="modal fade" id="myModal">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <!-- Modal Header -->
@@ -167,7 +194,7 @@
                 </div>
             </div>
         </div> --}}
-        <!-- end model popup -->
+    <!-- end model popup -->
     </div>
     <!-- jQuery -->
     @include('components.bottomscrip')
