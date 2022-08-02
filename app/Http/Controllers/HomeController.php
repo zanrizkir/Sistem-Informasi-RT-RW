@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Rt;
 
 class HomeController extends Controller
 {
@@ -23,6 +24,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $rt = Rt::where('id_user', auth()->user()->id)->get()[0];
+
+        // dd($rt);
+
+        return view('home', compact('rt'));
     }
 }

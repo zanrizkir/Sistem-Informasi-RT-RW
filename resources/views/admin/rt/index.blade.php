@@ -62,7 +62,6 @@
                                                         <th>Jenis Kelamin</th>
                                                         <th>Tanggal Lahir</th>
                                                         <th>Agama</th>
-                                                        <th>Foto</th>
                                                         <th>Action</th>
                                                     </tr>
                                                 </thead>
@@ -76,7 +75,6 @@
                                                             <td>{{$data->jk}} </td>
                                                             <td>{{$data->tanggal_lahir}} </td>
                                                             <td>{{$data->agama}} </td>
-                                                            <td>{{$data->image}} </td>
                                                             <td>
                                                                 <form action="{{ route('rt.destroy', $data->id) }}"
                                                                     method="post">

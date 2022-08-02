@@ -34,7 +34,7 @@
                     {{-- {{ dd(Rt::find(Auth::user()->id_rt)) }} --}}
                     {{-- {{ dd($rt) }} --}}
                     <div class="user_img"><img class="img-responsive"
-                            src="{{ asset('/images/profile/' . $rt[0]->image) }}" alt="#" /></div>
+                            src="{{ asset('/image/rt/' . $rt->image) }}" alt="#" /></div>
                     <div class="user_info">
                         <h6>{{ Auth::user()->name }} </h6>
                         <p><span class="online_animation"></span> Online</p>

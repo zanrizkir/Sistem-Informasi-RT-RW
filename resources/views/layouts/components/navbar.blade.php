@@ -35,7 +35,7 @@
                     <ul class="user_profile_dd">
                         <li>
                             <a class="dropdown-toggle" data-toggle="dropdown"><img class="img-responsive rounded-circle"
-                                    src="{{ asset('assets/images/layout_img/msg2.png') }}" alt="#" /><span
+                                    src="{{ asset('/image/rt/' . $rt->image) }}" alt="#" /><span
                                     class="name_user">{{Auth::user()->name}}</span></a>
                             <div class="dropdown-menu">
                                 {{-- <a class="dropdown-item" href="profile.html">My Profile</a>

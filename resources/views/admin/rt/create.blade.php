@@ -110,7 +110,7 @@
                                                             <option value="Islam">Islam</option>
                                                             <option value="Kristen">Kristen</option>
                                                             <option value="Katolik">Katolik</option>
-                                                            <option value="Konghucu">Hindu</option>
+                                                            <option value="Hindu">Hindu</option>
                                                             <option value="Budha">Budha</option>
                                                         </select>
                                                         @error('agama')

@@ -104,9 +104,10 @@ class RtController extends Controller
      * @param  \App\Models\Rt  $rt
      * @return \Illuminate\Http\Response
      */
-    public function edit(Rt $rt)
+    public function edit($id)
     {
-        //
+        $rt = Rt::findOrFail($id);
+        return view('admin.rt.edit', compact('rt'));
     }
 
     /**

@@ -38,7 +38,7 @@
                            <div class="white_shd full margin_bottom_30">
                               <div class="full graph_head">
                                  <div class="heading1 margin_0">
-                                    <h2>User profile</h2>
+                                    <h2>User RT</h2>
                                  </div>
                               </div>
                               <div class="full price_table padding_infor_info">
@@ -47,7 +47,7 @@
                                     <!-- profile image -->
                                     <div class="col-lg-12">
                                        <div class="full dis_flex center_text">
-                                          <div class="profile_img"><img width="180" class="rounded-circle" src="{{ asset('/images/profile/' . $rt->image)}}" alt="#" /></div>
+                                          <div class="profile_img"><img width="195" height="300" class="rounded" src="{{ asset('/image/rt/' . $rt->image)}}" alt="#" /></div>
                                           <div class="profile_contant">
                                              <div class="contact_inner">
                                                 <h3>{{$rt->nama }}</h3>
@@ -73,11 +73,11 @@
                                                       <td><p><strong>{{$rt->agama}} </strong></p></td>
                                                    </tr>
                                                 </table>
+                                                <div class="button_blockc d-flex justify-content-end"><a href="{{ route('rt.index') }}" class="btn cur-p btn-outline-primary ">Kembali</a></div>
                                              </div>
                                              
                                           </div>
                                        </div>
-                                       <div class="button_block"><a href="{{ route('rt.index') }}" class="btn cur-p btn-outline-primary">Kembali</a></div>
                                     </div>
                                  </div>
                               </div>
