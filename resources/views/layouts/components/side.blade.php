@@ -21,7 +21,15 @@
     </div>
     <div class="sidebar_blog_2">
         <ul class="list-unstyled components">
-            <h4>Halaman Admin Rw</h4>
+            <h4>
+                
+                Halaman Admin Rw
+                
+            </h4>
+            <li>
+                <a href="{{ route('penduduk.index') }}"><i class="fa fa-users blue_color"></i>
+                    <span>Tabel Penduduk</span></a>
+            </li>
             <li><a href="{{ route('berita.index') }}"><i class="fa fa-newspaper-o green_color2"></i>
                     <span>Tabel Berita</span></a></li>
             <li><a href="{{ route('rt.index') }}"><i class="fa fa-user blue_color2"></i>
@@ -33,8 +41,9 @@
                 <div class="user_profle_side">
                     {{-- {{ dd(Rt::find(Auth::user()->id_rt)) }} --}}
                     {{-- {{ dd($rt) }} --}}
-                    <div class="user_img"><img class="img-responsive"
-                            src="{{ asset('/image/rt/' . $rt->image) }}" alt="#" /></div>
+                    <div class="user_img"><img class="img-responsive" src="asset('assets/images/layout_img/user_img.jpg') }}"
+                    {{-- <div class="user_img"><img class="img-responsive" src="{{ asset('/image/rt/' . $rt->image) }}" --}}
+                            alt="#" /></div>
                     <div class="user_info">
                         <h6>{{ Auth::user()->name }} </h6>
                         <p><span class="online_animation"></span> Online</p>

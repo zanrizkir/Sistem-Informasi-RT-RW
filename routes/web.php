@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -32,18 +32,15 @@ Route::get('/tes_admin', function () {
 
 Route::group(['prefix' => 'adminrw'], function () {
     Route::get('/', function () {
-        return view('admin.index')-name('rw_home');
+        return view('admin.index') - name('rw_home');
     });
     Route::resource('/berita', BeritaController::class);
     Route::resource('/rt', RtController::class);
-    
 });
 
 Route::group(['prefix' => 'admin-rt'], function () {
     Route::get('/', function () {
-        return view('admin.index');
+        return view('admin.rt.index');
     });
     Route::resource('/penduduk', PendudukController::class);
-    
 });
-

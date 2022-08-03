@@ -17,9 +17,10 @@ class CreateBeritasTable extends Migration
             $table->id();
             $table->unsignedBigInteger('id_rt');
             $table->string('judul');
+            // $table->date('tanggal');
             $table->text('deskripsi');
             $table->string('image');
-            $table->foreign('id_rt')->references('id')->on('rts');
+            $table->foreign('id_rt')->references('id')->on('rts')->onDelete('cascade');
             $table->timestamps();
         });
     }

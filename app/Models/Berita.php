@@ -9,7 +9,8 @@ class Berita extends Model
 {
     use HasFactory;
 
-     public function rt() {
-        return $this->belongsTo(Rt::class);
+    public function rt()
+    {
+        return $this->belongsTo(Rt::class, 'id_rt');
     }
 }

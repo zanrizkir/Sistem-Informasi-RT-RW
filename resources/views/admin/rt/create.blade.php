@@ -106,7 +106,7 @@
                                                         <select
                                                             class="form-control @error('agama') is-invalid @enderror"
                                                             name="agama">
-                                                            <option selected>Pilih Salah Satu</option>
+                                                            <option selected disabled>Pilih Salah Satu</option>
                                                             <option value="Islam">Islam</option>
                                                             <option value="Kristen">Kristen</option>
                                                             <option value="Katolik">Katolik</option>

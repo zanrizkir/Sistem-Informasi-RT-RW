@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Rt;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
-use Illuminate\Foundation\Auth\User;
+// use Illuminate\Foundation\Auth\User;
 
 class RtController extends Controller
 {
@@ -73,10 +74,10 @@ class RtController extends Controller
         $rt->tanggal_lahir = $request->tanggal_lahir;
         $rt->agama = $request->agama;
         // $rt->image = $request->image;
-        if ($request->hasFile('image')){
+        if ($request->hasFile('image')) {
             $image = $request->file('image');
             $name = rand(1000, 9999) . $image->getClientOriginalName();
-            $image->move('image/rt/',$name);
+            $image->move('image/rt/', $name);
             $rt->image = $name;
         }
         $rt->save();
@@ -107,7 +108,8 @@ class RtController extends Controller
     public function edit($id)
     {
         $rt = Rt::findOrFail($id);
-        return view('admin.rt.edit', compact('rt'));
+        $dataAkunRt = User::findOrFail($rt->id_user);
+        return view('admin.rt.edit', compact('rt', 'dataAkunRt'));
     }
 
     /**
@@ -119,7 +121,43 @@ class RtController extends Controller
      */
     public function update(Request $request, Rt $rt)
     {
-        //
+        // $validated = $request->validate([
+        //     'rt' => 'required|',
+        //     'nama' => 'required',
+        //     'jk' => 'required',
+        //     'tanggal_lahir' => 'required',
+        //     'agama' => 'required',
+        //     'image' => 'image|max:2048',
+        //     'email' => 'required|unique:users|max:255',
+        //     'password' => 'required',
+        // ]);
+
+        $user = User::find($rt->id_user);
+        $user->name = $request->nama;
+        $user->email = $request->email;
+        $user->password = bcrypt($request->password);
+        $user->id_role = 2;
+        $user->save();
+
+        $rt->id_user = $user->id;
+        $rt->rt = $request->rt;
+        $rt->nama = $request->nama;
+        $rt->jk = $request->jk;
+        $rt->tanggal_lahir = $request->tanggal_lahir;
+        $rt->agama = $request->agama;
+        // $rt->image = $request->image;
+        if ($request->hasFile('image')) {
+            $rt->deleteImage();
+            $image = $request->file('image');
+            $name = rand(1000, 9999) . $image->getClientOriginalName();
+            $image->move('images/rt/', $name);
+            $rt->foto = $name;
+        }
+        $rt->save();
+
+        return redirect()
+            ->route('rt.index')
+            ->with('success', 'Data berhasil diedit!');
     }
 
     /**
@@ -128,11 +166,10 @@ class RtController extends Controller
      * @param  \App\Models\Rt  $rt
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Rt $rt)
     {
-        $rt = Rt::findOrFail($id);
-        // $rt->deleteImage();
         $rt->delete();
+        $user = User::find($rt->id_user)->delete();
         return redirect()
             ->route('rt.index')
             ->with('success', 'Data berhasil dihapus!');
