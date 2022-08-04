@@ -26,14 +26,16 @@
                 Halaman Admin Rw
                 
             </h4>
-            <li>
-                <a href="{{ route('penduduk.index') }}"><i class="fa fa-users blue_color"></i>
-                    <span>Tabel Penduduk</span></a>
-            </li>
-            <li><a href="{{ route('berita.index') }}"><i class="fa fa-newspaper-o green_color2"></i>
-                    <span>Tabel Berita</span></a></li>
             <li><a href="{{ route('rt.index') }}"><i class="fa fa-user blue_color2"></i>
                     <span>Tabel Rt</span></a>
+            </li>
+            <li>
+                <a href="{{ route('penduduk.index') }}"><i class="fa fa-users blue_color"></i>
+                    <span>Jadwal Ronde</span></a>
+            </li>
+            <li>
+                <a href="{{ route('penduduk.index') }}"><i class="fa fa-users blue_color"></i>
+                    <span>Jadwal Gotong Royong</span></a>
             </li>
         @elseif(Auth::user()->role->slug === 'admin-rt')
             <div class="sidebar_user_info">
@@ -57,6 +59,11 @@
             <li>
                 <a href="{{ route('penduduk.index') }}"><i class="fa fa-users blue_color"></i>
                     <span>Tabel Penduduk</span></a>
+            </li>
+            <li>
+                <a href="{{ route('berita.index') }}"><i class="fa fa-newspaper-o green_color2"></i>
+                    <span>Tabel Berita</span>
+                </a>
             </li>
             @endif
 

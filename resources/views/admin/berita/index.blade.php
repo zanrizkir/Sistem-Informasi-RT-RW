@@ -58,8 +58,6 @@
                                                     <tr>
                                                         <th>No</th>
                                                         <th>Judul</th>
-                                                        <th>Isi Berita</th>
-                                                        <th>Image</th>
                                                         <th>RT</th>
                                                         <th>Action</th>
                                                     </tr>
@@ -70,8 +68,6 @@
                                                         <tr class="table-dark text-dark">
                                                             <td>{{ $no++ }}</td>
                                                             <td>{{ $data->judul }} </td>
-                                                            <td>{{ $data->deskripsi }} </td>
-                                                            <td>{{ $data->image }} </td>
                                                             <td>{{ $data->rt->rt }} </td>
                                                             <td>
                                                                 <form action="{{ route('berita.destroy', $data->id) }}"

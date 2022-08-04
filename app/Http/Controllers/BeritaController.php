@@ -46,7 +46,7 @@ class BeritaController extends Controller
     {
         $berita = new Berita();
         $berita->judul = $request->judul;
-        $berita->id_rt = $request->rt;
+        $berita->id_rt = $request->id_rt;
         $berita->deskripsi = $request->deskripsi;
         if ($request->hasFile('image')) {
             $image = $request->file('image');
@@ -67,9 +67,10 @@ class BeritaController extends Controller
      * @param  \App\Models\Berita  $berita
      * @return \Illuminate\Http\Response
      */
-    public function show(Berita $berita)
+    public function show($id)
     {
-        //
+        $berita = Berita::findOrfail($id);
+        return view('admin.berita.show', compact('berita'));
     }
 
     /**
