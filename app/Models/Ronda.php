@@ -5,12 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Penduduk extends Model
+class Ronda extends Model
 {
     use HasFactory;
 
-     public function rt() {
-        return $this->hasOne(Rt::class);
+    public function rt()
+    {
+        return $this->belongsTo(Rt::class, 'id_rt');
     }
     public function image()
     {

@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Penduduk;
 use App\Models\Rt;
+use App\Models\Penduduk;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controller;
 
 class PendudukController extends Controller
 {
@@ -15,11 +16,8 @@ class PendudukController extends Controller
      */
     public function index()
     {
-        $penduduk = Penduduk::all();
-        $rt = Rt::firstWhere('id_user', auth()->user()->id)->get();
-        // $rt = Rt::where('id_user', auth()->user()->id)->get();
-        // $active = 'siswa';
-        return view('admin.penduduk.index', compact('penduduk', 'rt'));
+        $penduduk = Penduduk::with('rt')->get();
+        return view('adminrt.penduduk.index', compact('penduduk'));
     }
 
     /**
@@ -29,7 +27,8 @@ class PendudukController extends Controller
      */
     public function create()
     {
-        //
+        $rt = Rt::all();
+        return view('adminrt.penduduk.create', compact('rt'));
     }
 
     /**
@@ -40,7 +39,41 @@ class PendudukController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'nik' => 'required|unique:rts|max:255',
+            'nama' => 'required',
+            'umur' => 'required',
+            'tempat_lahir' => 'required',
+            'tanggal_lahir' => 'required',
+            'jk'=>'required', 
+            'alamat' => 'required',
+            'agama' => 'required',
+            'status_nikah' => 'required',
+            'pendidikan' => 'required',
+            'pekerjaan' => 'required',
+            'gol_darah' => 'required',
+            'id_rt' => 'required',
+        ]);
+
+        $penduduk = new Penduduk();
+        $penduduk->nik = $request->nik;
+        $penduduk->nama = $request->nama;
+        $penduduk->umur = $request->umur;
+        $penduduk->tempat_lahir = $request->tempat_lahir;
+        $penduduk->tanggal_lahir = $request->tanggal_lahir;
+        $penduduk->jk = $request->jk;   
+        $penduduk->alamat = $request->alamat;
+        $penduduk->agama = $request->agama;
+        $penduduk->status_nikah = $request->status_nikah;
+        $penduduk->pendidikan = $request->pendidikan;
+        $penduduk->pekerjaan = $request->pekerjaan;
+        $penduduk->gol_darah = $request->gol_darah;
+        $penduduk->id_rt = $request->id_rt;
+        $penduduk->save();
+
+        return redirect()
+            ->route('penduduk.index')
+            ->with('success', 'Jadwal berhasil ditambahkan!');
     }
 
     /**
@@ -49,9 +82,10 @@ class PendudukController extends Controller
      * @param  \App\Models\Penduduk  $penduduk
      * @return \Illuminate\Http\Response
      */
-    public function show(Penduduk $penduduk)
+    public function show($id)
     {
-        //
+        $penduduk = Penduduk::findOrfail($id);
+        return view('adminrt.penduduk.show', compact('penduduk'));
     }
 
     /**
@@ -62,7 +96,8 @@ class PendudukController extends Controller
      */
     public function edit(Penduduk $penduduk)
     {
-        //
+        $rt = Rt::all();
+        return view('adminrt.penduduk.edit', compact('penduduk', 'rt'));
     }
 
     /**
@@ -74,7 +109,18 @@ class PendudukController extends Controller
      */
     public function update(Request $request, Penduduk $penduduk)
     {
-        //
+        $validated = $request->validate([
+            'bulan' => 'required',
+            'minggu' => 'required',
+        ]);
+
+        $penduduk = $penduduk;
+        $penduduk->id_rt = $request->id_rt;
+        $penduduk->bulan = $request->bulan;
+        $penduduk->minggu = $request->minggu;
+        $penduduk->save();
+
+        return redirect()->route('penduduk.index')->with('success', 'Jadwal berhasil diedit!');
     }
 
     /**
@@ -85,6 +131,10 @@ class PendudukController extends Controller
      */
     public function destroy(Penduduk $penduduk)
     {
-        //
+        $penduduk->delete();
+
+        return redirect()
+            ->route('penduduk.index')
+            ->with('success', 'Jadwal berhasil dihapus!');
     }
 }

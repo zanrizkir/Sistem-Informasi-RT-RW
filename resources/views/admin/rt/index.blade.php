@@ -3,11 +3,11 @@
 
 <head>
     @include('components.topscrip')
-      <style>
+    <style>
         .bayangan {
-            box-shadow: 5px 4px 5px ;
+            box-shadow: 1px 1px 10px rgba(0, 0, 0, .9);
         }
-      </style>
+    </style>
 </head>
 
 <body class="inner_page tables_page">
@@ -59,6 +59,7 @@
                                                         <th>No</th>
                                                         <th>Rt</th>
                                                         <th>Nama</th>
+                                                        <th>Umur</th>
                                                         <th>Jenis Kelamin</th>
                                                         <th>Tanggal Lahir</th>
                                                         <th>Agama</th>
@@ -70,11 +71,12 @@
                                                     @foreach ($rt as $data)
                                                         <tr class="table-dark text-dark">
                                                             <td>{{ $no++ }}</td>
-                                                            <td>{{$data->rt}} </td>
-                                                            <td>{{$data->nama}} </td>
-                                                            <td>{{$data->jk}} </td>
-                                                            <td>{{$data->tanggal_lahir}} </td>
-                                                            <td>{{$data->agama}} </td>
+                                                            <td>{{ $data->rt }} </td>
+                                                            <td>{{ $data->nama }} </td>
+                                                            <td>{{ $data->umur }} </td>
+                                                            <td>{{ $data->jk }} </td>
+                                                            <td>{{ $data->tanggal_lahir }} </td>
+                                                            <td>{{ $data->agama }} </td>
                                                             <td>
                                                                 <form action="{{ route('rt.destroy', $data->id) }}"
                                                                     method="post">
@@ -82,27 +84,28 @@
                                                                     @method('delete')
                                                                     <a href="{{ route('rt.edit', $data->id) }}"
                                                                         class="btn btn-sm btn-outline-success fa fa-pencil-square-o">
-                                                                        
+
                                                                     </a> |
                                                                     <a href="{{ route('rt.show', $data->id) }}"
                                                                         class="btn btn-sm btn-outline-warning fa fa-eye">
-                                                                        
+
                                                                     </a> |
                                                                     <button type="submit"
                                                                         class="btn btn-sm btn-outline-danger fa fa-trash-o"
                                                                         onclick="return confirm('Apakah Anda Yakin?')">
                                                                         {{-- <i class="fa fa-user blue_color2"></i> --}}
-                                                                        
+
                                                                     </button>
                                                                 </form>
                                                             </td>
                                                         </tr>
-                                                        @endforeach
+                                                    @endforeach
                                                 </tbody>
                                             </table>
                                         </div>
                                         <div>
-                                            <a href="{{ route('rt.create') }}" class="btn btn-sm btn-primary" style="float: right">
+                                            <a href="{{ route('rt.create') }}" class="btn btn-sm btn-primary"
+                                                style="float: right">
                                                 Tambah Data
                                             </a>
                                         </div>

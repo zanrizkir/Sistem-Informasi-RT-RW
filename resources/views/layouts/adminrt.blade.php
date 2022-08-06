@@ -5,7 +5,7 @@
     @include('components.topscrip')
     <style>
         .bayangan {
-            box-shadow: 5px 4px 5px;
+            box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.9);
         }
     </style>
 </head>
@@ -14,12 +14,12 @@
     <div class="full_container">
         <div class="inner_container">
             <!-- Sidebar  -->
-            @include('layouts.components.side')
+            @include('layouts.components.side2')
             <!-- end sidebar -->
             <!-- right content -->
             <div id="content">
                 <!-- topbar -->
-                @include('layouts.components.navbar')
+                @include('layouts.components.navbar2')
                 <!-- end topbar -->
                 <!-- dashboard inner -->
                 <div class="midde_cont">
@@ -27,33 +27,12 @@
                         <br><br><br>
                         <!-- row -->
                         <div class="row">
-                            <!-- table section -->
-
-                            <!-- table section -->
-
-                            <!-- table section -->
-
-                            <!-- table section -->
-
-                            <!-- table section -->
-
-                            <!-- table section -->
-
-                            <!-- table section -->
-
-                            <!-- table section -->
-
-                            <!-- table section -->
                             <div class="col-md-12">
-                                <div class="card mb-3">
-                                    <img src="..." class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Card title</h5>
-                                        <p class="card-text">This is a wider card with supporting text below as a
-                                            natural lead-in to additional content.
-                                            This content is a little bit longer.</p>
-                                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small>
-                                        </p>
+                                <div class="white_shd full margin_bottom_30 ">
+                                    <div class="table_section padding_infor_info">
+                                        <section class='content'>
+                                            @yield('content1')
+                                        </section>
                                     </div>
                                 </div>
                             </div>

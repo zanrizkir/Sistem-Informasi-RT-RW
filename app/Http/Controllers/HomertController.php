@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Rt;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use App\Models\Rt;
 
-class HomeController extends Controller
+class HomertController extends Controller
 {
-    /**
+     /**
      * Create a new controller instance.
      *
      * @return void
@@ -18,18 +18,19 @@ class HomeController extends Controller
         $this->middleware('auth');
     }
 
-    /**
+    /**P
      * Show the application dashboard.
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    
+     public function index()
     {
-        $rt = Rt::where('id_user', auth()->user()->id)->get();
+        $rt = Rt::where('id_user', auth()->user()->id)->get()[0];
         // if (auth()->user()->id_role === 2) {
         //     return redirect('rt')
         // }
         // dd($rt);
-        return view('home', compact('rt'));
+        return view('homert', compact('rt'));
     }
 }

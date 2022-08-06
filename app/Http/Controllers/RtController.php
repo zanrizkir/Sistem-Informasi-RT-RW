@@ -17,12 +17,7 @@ class RtController extends Controller
      */
     public function index()
     {
-        //menampilkan semua data dari model rt
-        // $user = User::with(['rt']);
-        // return view('admin.rt.index', compact('user'));
-
         $rt = Rt::all();
-        // $active = 'siswa';
         return view('admin.rt.index', compact('rt'));
     }
 
@@ -51,6 +46,7 @@ class RtController extends Controller
         $validated = $request->validate([
             'rt' => 'required|unique:rts|max:255',
             'nama' => 'required',
+            'umur' => 'required',
             'jk' => 'required',
             'tanggal_lahir' => 'required',
             'agama' => 'required',
@@ -70,6 +66,7 @@ class RtController extends Controller
         $rt->id_user = $user->id;
         $rt->rt = $request->rt;
         $rt->nama = $request->nama;
+        $rt->umur = $request->umur;
         $rt->jk = $request->jk;
         $rt->tanggal_lahir = $request->tanggal_lahir;
         $rt->agama = $request->agama;
@@ -124,12 +121,12 @@ class RtController extends Controller
         // $validated = $request->validate([
         //     'rt' => 'required|',
         //     'nama' => 'required',
+        //     'umur' => 'required',
         //     'jk' => 'required',
         //     'tanggal_lahir' => 'required',
         //     'agama' => 'required',
         //     'image' => 'image|max:2048',
-        //     'email' => 'required|unique:users|max:255',
-        //     'password' => 'required',
+        //     'email' => 'required|max:255',
         // ]);
 
         $user = User::find($rt->id_user);
@@ -142,6 +139,7 @@ class RtController extends Controller
         $rt->id_user = $user->id;
         $rt->rt = $request->rt;
         $rt->nama = $request->nama;
+        $rt->umur = $request->umur;
         $rt->jk = $request->jk;
         $rt->tanggal_lahir = $request->tanggal_lahir;
         $rt->agama = $request->agama;

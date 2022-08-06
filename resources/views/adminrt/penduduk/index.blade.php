@@ -5,7 +5,7 @@
     @include('components.topscrip')
     <style>
         .bayangan {
-            box-shadow: 5px 4px 5px;
+            box-shadow: 1px 1px 10px rgba(0,0,0, 0.9);
         }
     </style>
 </head>
@@ -27,23 +27,6 @@
                         <br><br><br>
                         <!-- row -->
                         <div class="row">
-                            <!-- table section -->
-
-                            <!-- table section -->
-
-                            <!-- table section -->
-
-                            <!-- table section -->
-
-                            <!-- table section -->
-
-                            <!-- table section -->
-
-                            <!-- table section -->
-
-                            <!-- table section -->
-
-                            <!-- table section -->
                             <div class="col-md-12">
                                 <div class="white_shd full margin_bottom_30 bayangan">
                                     <div class="full graph_head">
@@ -58,14 +41,17 @@
                                                     <tr>
                                                         <th>NIK</th>
                                                         <th>Nama</th>
+                                                        <th>Umur</th>
                                                         <th>Tempat Lahir</th>
                                                         <th>Tanggal Lahir</th>
                                                         <th>Jenis Kelamin</th>
                                                         <th>Alamat</th>
                                                         <th>Agama</th>
                                                         <th>Status Perkawinan</th>
+                                                        <th>Pendidikan</th>
                                                         <th>Pekerjaan</th>
-                                                        <th>Rt</th>
+                                                        <th>Golongan darah</th>
+                                                        {{-- <th>Rt</th> --}}
                                                         <th>Action</th>
                                                     </tr>
                                                 </thead>
@@ -76,15 +62,17 @@
                                                         <td>{{ $no++ }}</td>
                                                         <td>{{$data->nik}} </td>
                                                         <td>{{$data->nama}} </td>
+                                                        <td>{{$data->umur}} </td>
                                                         <td>{{$data->tempat_lahir}} </td>
                                                         <td>{{$data->tanggal_lahir}} </td>
                                                         <td>{{$data->jk}} </td>
                                                         <td>{{$data->alamat}} </td>
                                                         <td>{{$data->agama}} </td>
                                                         <td>{{$data->status_nikah}} </td>
+                                                        <td>{{$data->pendidikan}} </td>
                                                         <td>{{$data->pekerjaan}} </td>
                                                         <td>{{$data->gol_darah}} </td>
-                                                        <td>{{ $data->rt->rt }} </td>
+                                                        {{-- <td>{{ $data->rt->rt }} </td> --}}
                                                         <td>
                                                             <form action="{{ route('rt.destroy', $data->id) }}"
                                                                 method="post">

@@ -12,7 +12,7 @@
                 <div class="login_section">
                     <div class="logo_login">
                         <div class="center">
-                            <img width="210" src="{{asset('assets/images/logo/logo.png')}}" alt="#" />
+                            <img width="210"  alt="" />
                         </div>
                     </div>
                     <div class="login_form">

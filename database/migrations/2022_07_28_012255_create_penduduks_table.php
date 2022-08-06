@@ -17,6 +17,7 @@ class CreatePenduduksTable extends Migration
             $table->id();
             $table->string('nik');
             $table->string('nama');
+            $table->integer('umur');
             $table->string('tempat_lahir');
             $table->date('tanggal_lahir');
             $table->enum('jk',['Laki-laki','Perempuan']);

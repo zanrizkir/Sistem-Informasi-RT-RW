@@ -58,6 +58,11 @@
                                                       <td><p><strong>{{$rt->rt}} </strong></p></td>
                                                    </tr>
                                                    <tr>
+                                                      <td><p><strong>Umur</strong></p></td>
+                                                      <td><p><strong> : </strong></p></td>
+                                                      <td><p><strong>{{$rt->umur}} </strong></p></td>
+                                                   </tr>
+                                                   <tr>
                                                       <td><p><strong>Jenis Kelamin</strong></p></td>
                                                       <td><p><strong> : </strong></p></td>
                                                       <td><p><strong>{{$rt->jk}} </strong></p></td>

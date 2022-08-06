@@ -21,11 +21,12 @@ class CreateRtsTable extends Migration
                 ->on('users');
             $table->integer('rt')->unique();
             $table->string('nama');
+            $table->integer('umur');
             $table->enum('jk', ['Laki-laki', 'Perempuan']);
             $table->date('tanggal_lahir');
             $table->enum('agama', ['Islam', 'Kristen', 'Katolik', 'Hindu', 'Budha']);
             $table->string('image');
-            $table->timestamps();
+            $table->timestamps(); 
         });
     }
 

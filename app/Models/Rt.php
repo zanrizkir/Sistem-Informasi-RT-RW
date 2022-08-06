@@ -19,13 +19,33 @@ class Rt extends Model
         return $this->hasOne(Rt::class);
     }
 
-    public function berita()
+    public function ronda()
     {
-        return $this->hasMany(Berita::class,'id_berita');
+        return $this->hasMany(Ronda::class,'id_ronda');
+    }
+    public function kegiatan()
+    {
+        return $this->hasMany(kegiatan::class,'id_ronda');
     }
 
     public function penduduk()
     {
         return $this->hasMany(Penduduk::class);
     }
+    public function image()
+    {
+        if ($this->image && file_exists(public_path('image/rt/' . $this->image))) {
+            return asset('image/rt/' . $this->image);
+        } else {
+            return asset('assets/images/layout_img/user_img.jpg');
+        }
+    }
+    // mengahupus image(image) di storage(penyimpanan) public
+    public function deleteImage()
+    {
+        if ($this->image && file_exists(public_path('image/rt/' . $this->image))) {
+            return unlink(public_path('image/rt/' . $this->image));
+        }
+    }
+    
 }

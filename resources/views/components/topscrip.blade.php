@@ -38,4 +38,8 @@
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js')}}"></script>
       <![endif]-->
 
-      
+<style>
+      .bayangan {
+            box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.9);
+      }
+</style>      

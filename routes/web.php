@@ -4,7 +4,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RtController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\BeritaController;
+use App\Http\Controllers\RondaController;
+use App\Http\Controllers\KegiatanController;
 use App\Http\Controllers\PendudukController;
 
 /*
@@ -34,8 +35,9 @@ Route::group(['prefix' => 'adminrw'], function () {
     Route::get('/', function () {
         return view('admin.index') - name('rw_home');
     });
-    Route::resource('/berita', BeritaController::class);
     Route::resource('/rt', RtController::class);
+    Route::resource('/ronda', RondaController::class);
+    Route::resource('/kegiatan', KegiatanController::class);
 });
 
 Route::group(['prefix' => 'admin-rt'], function () {
@@ -43,4 +45,5 @@ Route::group(['prefix' => 'admin-rt'], function () {
         return view('admin.rt.index');
     });
     Route::resource('/penduduk', PendudukController::class);
+    // Route::resource('/berita', BeritaController::class);
 });

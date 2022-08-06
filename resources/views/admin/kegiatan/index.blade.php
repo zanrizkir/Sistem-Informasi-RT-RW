@@ -3,11 +3,7 @@
 
 <head>
     @include('components.topscrip')
-    <style>
-        .bayangan {
-            box-shadow: 5px 4px 5px;
-        }
-    </style>
+
 </head>
 
 <body class="inner_page tables_page">
@@ -27,58 +23,44 @@
                         <br><br><br>
                         <!-- row -->
                         <div class="row">
-                            <!-- table section -->
-
-                            <!-- table section -->
-
-                            <!-- table section -->
-
-                            <!-- table section -->
-
-                            <!-- table section -->
-
-                            <!-- table section -->
-
-                            <!-- table section -->
-
-                            <!-- table section -->
-
-                            <!-- table section -->
-                            <div class="col-md-12">
+                            <div class="col-md-12 mx-auto">
                                 <div class="white_shd full margin_bottom_30 bayangan">
                                     <div class="full graph_head">
                                         <div class="heading1 margin_0">
-                                            <h2>Data berita</h2>
+                                            <h2>Data kegiatan</h2>
                                         </div>
                                     </div>
                                     <div class="table_section padding_infor_info">
                                         <div class="table-responsive-sm">
                                             <table class="table">
-                                                <thead class='thead-dark'>
+                                                <thead class='thead-dark mx-auto '>
                                                     <tr>
                                                         <th>No</th>
-                                                        <th>Judul</th>
+                                                        <th>Nama Kegiatan</th>
                                                         <th>RT</th>
+                                                        <th>tanggal_kegiatan</th>
                                                         <th>Action</th>
                                                     </tr>
                                                 </thead>
-                                                <tbody>
+                                                <tbody class="mx-auto">
                                                     @php $no = 1; @endphp
-                                                    @foreach ($berita as $data)
+                                                    @foreach ($kegiatan as $data)
                                                         <tr class="table-dark text-dark">
                                                             <td>{{ $no++ }}</td>
-                                                            <td>{{ $data->judul }} </td>
+                                                            <td>{{ $data->nama_kegiatan }} </td>
                                                             <td>{{ $data->rt->rt }} </td>
+                                                            <td>{{ $data->tanggal_kegiatan }} </td>
                                                             <td>
-                                                                <form action="{{ route('berita.destroy', $data->id) }}"
+                                                                <form
+                                                                    action="{{ route('kegiatan.destroy', $data->id) }}"
                                                                     method="post">
                                                                     @csrf
                                                                     @method('delete')
-                                                                    <a href="{{ route('berita.edit', $data->id) }}"
+                                                                    <a href="{{ route('kegiatan.edit', $data->id) }}"
                                                                         class="btn btn-sm btn-outline-success fa fa-pencil-square-o">
 
                                                                     </a> |
-                                                                    <a href="{{ route('berita.show', $data->id) }}"
+                                                                    <a href="{{ route('kegiatan.show', $data->id) }}"
                                                                         class="btn btn-sm btn-outline-warning fa fa-eye">
 
                                                                     </a> |
@@ -96,7 +78,7 @@
                                             </table>
                                         </div>
                                         <div>
-                                            <a href="{{ route('berita.create') }}" class="btn btn-sm btn-primary"
+                                            <a href="{{ route('kegiatan.create') }}" class="btn btn-sm btn-primary"
                                                 style="float: right">
                                                 Tambah Data
                                             </a>
@@ -110,28 +92,7 @@
                 <!-- end dashboard inner -->
             </div>
         </div>
-        <!-- model popup -->
-        <!-- The Modal -->
-        {{-- <div class="modal fade" id="myModal">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <!-- Modal Header -->
-                    <div class="modal-header">
-                        <h4 class="modal-title">Modal Heading</h4>
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    </div>
-                    <!-- Modal body -->
-                    <div class="modal-body">
-                        Modal body..
-                    </div>
-                    <!-- Modal footer -->
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                    </div>
-                </div>
-            </div>
-        </div> --}}
-        <!-- end model popup -->
+
     </div>
     <!-- jQuery -->
     @include('components.bottomscrip')
