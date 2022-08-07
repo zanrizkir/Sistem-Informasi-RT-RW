@@ -27,23 +27,6 @@
                         <br><br><br>
                         <!-- row -->
                         <div class="row">
-                            <!-- table section -->
-
-                            <!-- table section -->
-
-                            <!-- table section -->
-
-                            <!-- table section -->
-
-                            <!-- table section -->
-
-                            <!-- table section -->
-
-                            <!-- table section -->
-
-                            <!-- table section -->
-
-                            <!-- table section -->
                             <div class="col-md-12">
                                 <div class="white_shd full margin_bottom_30 bayangan">
                                     <div class="full graph_head">
@@ -146,3 +129,5 @@
 </body>
 
 </html>
+
+

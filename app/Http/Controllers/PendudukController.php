@@ -17,8 +17,8 @@ class PendudukController extends Controller
     public function index()
     {
         $penduduk = Penduduk::where('id_rt', auth()->user()->rt->id)->get();
-        // dd($penduduk);x  
-        return view('adminrt.penduduk.index',['penduduk' => $penduduk]);
+        // dd($penduduk);x
+        return view('adminrt.penduduk.index', ['penduduk' => $penduduk]);
     }
 
     /**
@@ -46,7 +46,7 @@ class PendudukController extends Controller
             'umur' => 'required',
             'tempat_lahir' => 'required',
             'tanggal_lahir' => 'required',
-            'jk'=>'required', 
+            'jk' => 'required',
             'agama' => 'required',
             'status_nikah' => 'required',
             'Pendidikan' => 'required',
@@ -62,7 +62,7 @@ class PendudukController extends Controller
         $penduduk->umur = $request->umur;
         $penduduk->tempat_lahir = $request->tempat_lahir;
         $penduduk->tanggal_lahir = $request->tanggal_lahir;
-        $penduduk->jk = $request->jk;   
+        $penduduk->jk = $request->jk;
         $penduduk->agama = $request->agama;
         $penduduk->status_nikah = $request->status_nikah;
         $penduduk->Pendidikan = $request->Pendidikan;
@@ -71,7 +71,7 @@ class PendudukController extends Controller
         if ($request->hasFile('foto')) {
             $foto = $request->file('foto');
             $name = rand(1000, 9999) . $foto->getClientOriginalName();
-            $foto->move('foto/rt/', $name);
+            $foto->move('image/penduduk/', $name);
             $penduduk->foto = $name;
         }
         $penduduk->id_rt = $request->id_rt;
@@ -115,18 +115,46 @@ class PendudukController extends Controller
      */
     public function update(Request $request, Penduduk $penduduk)
     {
-        $validated = $request->validate([
-            'bulan' => 'required',
-            'minggu' => 'required',
-        ]);
+        // $validated = $request->validate([
+        //     'nik' => 'required',
+        //     'nama' => 'required',
+        //     'umur' => 'required',
+        //     'tempat_lahir' => 'required',
+        //     'tanggal_lahir' => 'required',
+        //     'jk' => 'required',
+        //     'agama' => 'required',
+        //     'status_nikah' => 'required',
+        //     'Pendidikan' => 'required',
+        //     'pekerjaan' => 'required',
+        //     'gol_darah' => 'required',
+        //     'foto' => 'required',
+        //     'id_rt' => 'required',
+        // ]);
 
         $penduduk = $penduduk;
+        $penduduk->nik = $request->nik;
+        $penduduk->nama = $request->nama;
+        $penduduk->umur = $request->umur;
+        $penduduk->tempat_lahir = $request->tempat_lahir;
+        $penduduk->tanggal_lahir = $request->tanggal_lahir;
+        $penduduk->jk = $request->jk;
+        $penduduk->agama = $request->agama;
+        $penduduk->status_nikah = $request->status_nikah;
+        $penduduk->Pendidikan = $request->Pendidikan;
+        $penduduk->pekerjaan = $request->pekerjaan;
+        $penduduk->gol_darah = $request->gol_darah;
+        if ($request->hasFile('foto')) {
+            $foto = $request->file('foto');
+            $name = rand(1000, 9999) . $foto->getClientOriginalName();
+            $foto->move('image/penduduk/', $name);
+            $penduduk->foto = $name;
+        }
         $penduduk->id_rt = $request->id_rt;
-        $penduduk->bulan = $request->bulan;
-        $penduduk->minggu = $request->minggu;
         $penduduk->save();
 
-        return redirect()->route('penduduk.index')->with('success', 'Jadwal berhasil diedit!');
+        return redirect()
+            ->route('penduduk.index')
+            ->with('success', 'Jadwal berhasil diedit!');
     }
 
     /**

@@ -21,11 +21,11 @@ class Rt extends Model
 
     public function ronda()
     {
-        return $this->hasMany(Ronda::class,'id_ronda');
+        return $this->hasMany(Ronda::class,'id_rt');
     }
     public function kegiatan()
     {
-        return $this->hasMany(kegiatan::class,'id_kegiatan');
+        return $this->hasMany(kegiatan::class,'id_rt');
     }
 
     public function penduduk()

@@ -24,15 +24,15 @@
                 <h4>
                     Halaman Admin Rw
                 </h4>
-                <li><a href="{{ route('rt.index') }}"><i class="fa fa-user blue_color2"></i>
+                <li><a href="{{ route('rt.index') }}"><i class="fa fa-user orange_color2"></i>
                         <span>Tabel Rt</span></a>
                 </li>
                 <li>
-                    <a href="{{ route('ronda.index') }}"><i class="fa fa-users blue_color"></i>
+                    <a href="{{ route('ronda.index') }}"><i class="fa fa-shield blue2_color"></i>
                         <span>Jadwal Ronda</span></a>
                 </li>
                 <li>
-                    <a href="{{ route('kegiatan.index') }}"><i class="fa fa-users blue_color"></i>
+                    <a href="{{ route('kegiatan.index') }}"><i class="fa fa-bell yellow_color"></i>
                         <span>Kegiatan lain </span></a>
                 </li>
             </ul>
@@ -65,16 +65,16 @@
                 <h4>
                     Halaman Admin RT
                 </h4>
-                <li><a href="{{ route('penduduk.index') }}"><i class="fa fa-user blue_color2"></i>
+                <li><a href="{{ route('penduduk.index') }}"><i class="fa fa-users orange_color2"></i>
                         <span>Tabel Penduduk</span></a>
                 </li>
                 <li>
-                    <a href="{{ route('ronda.index') }}"><i class="fa fa-users blue_color"></i>
+                    <a href="{{ route('ronda.index') }}"><i class="fa fa-shield blue2_color"></i>
                         <span>Tabel Ronda</span></a>
                 </li>
                 <li>
-                    <a href="{{ route('kegiatan.index') }}"><i class="fa fa-users blue_color"></i>
-                        <span>Tabel Kegiatan</span></a>
+                    <a href="{{ route('kegiatan.index') }}"><i class="fa fa-info yellow_color"></i>
+                        <span>Tabel Informasi</span></a>
                 </li>
             </ul>
         </div>

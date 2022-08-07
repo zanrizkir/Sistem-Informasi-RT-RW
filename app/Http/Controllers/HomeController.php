@@ -25,7 +25,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $rt = Rt::where('id_user', auth()->user()->id)->get()[0];
+        $rt = Rt::where('id_user', auth()->user()->id)->get();
         // if (auth()->user()->id_role === 2) {
         //     return redirect('rt')
         // }

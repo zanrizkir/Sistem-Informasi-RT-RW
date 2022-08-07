@@ -31,6 +31,7 @@
                                 <div class="row justify-content-center">
                                     <div class="col-md-12">
                                         {{-- @include('layouts/_flash') --}}
+                                        
                                         <div class="card w-75 mx-auto">
                                             <div class="card-header">
                                                 Data rt
@@ -75,10 +76,7 @@
                                                     <div class="mb-3">
                                                         <label class="form-label">Jenis Kelamin</label>
                                                         <div class="form-check">
-                                                            <input
-                                                                class="form-check-input @error('jk') is-invalid @enderror"
-                                                                type="radio" name="jk" value="Laki-laki"
-                                                                @if ($rt->jk == 'Laki-laki') checked @endif>
+                                                            <input class="form-check-input @error('jk') is-invalid @enderror"type="radio" name="jk" value="Laki-laki" @if ($rt->jk == 'Laki-laki') checked @endif>
                                                             <label class="form-check-label">
                                                                 Laki-laki
                                                             </label>
