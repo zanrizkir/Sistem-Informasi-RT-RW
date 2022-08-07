@@ -16,8 +16,9 @@ class PendudukController extends Controller
      */
     public function index()
     {
-        $penduduk = Penduduk::with('rt')->get();
-        return view('adminrt.penduduk.index', compact('penduduk'));
+        $penduduk = Penduduk::where('id_rt', auth()->user()->rt->id)->get();
+        // dd($penduduk);x  
+        return view('adminrt.penduduk.index',['penduduk' => $penduduk]);
     }
 
     /**
@@ -40,18 +41,18 @@ class PendudukController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'nik' => 'required|unique:rts|max:255',
+            'nik' => 'required|unique:penduduks|max:255',
             'nama' => 'required',
             'umur' => 'required',
             'tempat_lahir' => 'required',
             'tanggal_lahir' => 'required',
             'jk'=>'required', 
-            'alamat' => 'required',
             'agama' => 'required',
             'status_nikah' => 'required',
-            'pendidikan' => 'required',
+            'Pendidikan' => 'required',
             'pekerjaan' => 'required',
             'gol_darah' => 'required',
+            'foto' => 'required',
             'id_rt' => 'required',
         ]);
 
@@ -62,12 +63,17 @@ class PendudukController extends Controller
         $penduduk->tempat_lahir = $request->tempat_lahir;
         $penduduk->tanggal_lahir = $request->tanggal_lahir;
         $penduduk->jk = $request->jk;   
-        $penduduk->alamat = $request->alamat;
         $penduduk->agama = $request->agama;
         $penduduk->status_nikah = $request->status_nikah;
-        $penduduk->pendidikan = $request->pendidikan;
+        $penduduk->Pendidikan = $request->Pendidikan;
         $penduduk->pekerjaan = $request->pekerjaan;
         $penduduk->gol_darah = $request->gol_darah;
+        if ($request->hasFile('foto')) {
+            $foto = $request->file('foto');
+            $name = rand(1000, 9999) . $foto->getClientOriginalName();
+            $foto->move('foto/rt/', $name);
+            $penduduk->foto = $name;
+        }
         $penduduk->id_rt = $request->id_rt;
         $penduduk->save();
 

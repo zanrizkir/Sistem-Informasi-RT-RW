@@ -10,7 +10,7 @@ class Penduduk extends Model
     use HasFactory;
 
      public function rt() {
-        return $this->hasOne(Rt::class);
+        return $this->belongsTo(Rt::class,'id_rt');
     }
     public function image()
     {

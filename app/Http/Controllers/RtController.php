@@ -17,8 +17,11 @@ class RtController extends Controller
      */
     public function index()
     {
+        // $penduduk = Penduduk::where('id_rt', auth()->user()->rt->id)->get();
+        // return view('penduduk.index', compact('penduduk'));
         $rt = Rt::all();
-        return view('admin.rt.index', compact('rt'));
+return view('admin.rt.index', compact('rt'));
+
     }
 
     /**

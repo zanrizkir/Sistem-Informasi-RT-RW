@@ -50,8 +50,8 @@
             <div class="sidebar_user_info">
                 <div class="icon_setting"></div>
                 <div class="user_profle_side">
-                    {{-- <div class="user_img"><img class="img-responsive" src="" --}}
-                    <div class="user_img"><img class="img-responsive" src="{{ asset('/image/rt/' . $rt->image) }}"
+                    <div class="user_img"><img class="img-responsive" src=""
+                    {{-- <div class="user_img"><img class="img-responsive" src="{{ asset('/image/rt/' . $rt->image) }}" --}}
                             alt="#" /></div>
                     <div class="user_info">
                         <h6>{{ Auth::user()->name }} </h6>

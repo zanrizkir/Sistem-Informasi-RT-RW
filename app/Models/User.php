@@ -19,7 +19,7 @@ class User extends Authenticatable
 
     public function rt()
     {
-        return $this->belongsTo(Rt::class);
+        return $this->hasOne(Rt::class,'id_user');
     }
     /**
      * The attributes that are mass assignable.

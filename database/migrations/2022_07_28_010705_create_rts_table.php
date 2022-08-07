@@ -15,10 +15,6 @@ class CreateRtsTable extends Migration
     {
         Schema::create('rts', function (Blueprint $table) {
             $table->id();
-            $table
-                ->unsignedBigInteger('id_user')
-                ->references('id')
-                ->on('users');
             $table->integer('rt')->unique();
             $table->string('nama');
             $table->integer('umur');
@@ -26,7 +22,9 @@ class CreateRtsTable extends Migration
             $table->date('tanggal_lahir');
             $table->enum('agama', ['Islam', 'Kristen', 'Katolik', 'Hindu', 'Budha']);
             $table->string('image');
-            $table->timestamps(); 
+            $table->unsignedBigInteger('id_user');
+            $table->foreign('id_user')->references('id')->on('users');
+            $table->timestamps();
         });
     }
 

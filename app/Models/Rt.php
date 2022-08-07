@@ -16,7 +16,7 @@ class Rt extends Model
 
     public function rt()
     {
-        return $this->hasOne(Rt::class);
+        return $this->belongsTo(Rt::class,'id_user');
     }
 
     public function ronda()
@@ -25,12 +25,12 @@ class Rt extends Model
     }
     public function kegiatan()
     {
-        return $this->hasMany(kegiatan::class,'id_ronda');
+        return $this->hasMany(kegiatan::class,'id_kegiatan');
     }
 
     public function penduduk()
     {
-        return $this->hasMany(Penduduk::class);
+        return $this->hasMany(Penduduk::class, 'id_rt');
     }
     public function image()
     {

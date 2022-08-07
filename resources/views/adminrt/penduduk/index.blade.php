@@ -31,7 +31,9 @@
                                 <div class="white_shd full margin_bottom_30 bayangan">
                                     <div class="full graph_head">
                                         <div class="heading1 margin_0">
-                                            <h2>Data Rt</h2>
+                                            <h2>
+                                            Data penduduk RT {{auth()->user()->rt->rt}}
+                                            </h2>
                                         </div>
                                     </div>
                                     <div class="table_section padding_infor_info">
@@ -39,18 +41,17 @@
                                             <table class="table">
                                                 <thead class='thead-dark'>
                                                     <tr>
+                                                        <th>No</th>
                                                         <th>NIK</th>
                                                         <th>Nama</th>
                                                         <th>Umur</th>
-                                                        <th>Tempat Lahir</th>
-                                                        <th>Tanggal Lahir</th>
+                                                        <th>Tempat/Tanggal Lahir</th>
                                                         <th>Jenis Kelamin</th>
-                                                        <th>Alamat</th>
                                                         <th>Agama</th>
                                                         <th>Status Perkawinan</th>
                                                         <th>Pendidikan</th>
                                                         <th>Pekerjaan</th>
-                                                        <th>Golongan darah</th>
+                                                        <th>Gol darah</th>
                                                         {{-- <th>Rt</th> --}}
                                                         <th>Action</th>
                                                     </tr>
@@ -63,26 +64,24 @@
                                                         <td>{{$data->nik}} </td>
                                                         <td>{{$data->nama}} </td>
                                                         <td>{{$data->umur}} </td>
-                                                        <td>{{$data->tempat_lahir}} </td>
-                                                        <td>{{$data->tanggal_lahir}} </td>
+                                                        <td>{{$data->tempat_lahir}} - {{$data->tanggal_lahir}} </td>
                                                         <td>{{$data->jk}} </td>
-                                                        <td>{{$data->alamat}} </td>
                                                         <td>{{$data->agama}} </td>
                                                         <td>{{$data->status_nikah}} </td>
-                                                        <td>{{$data->pendidikan}} </td>
+                                                        <td>{{$data->Pendidikan}} </td>
                                                         <td>{{$data->pekerjaan}} </td>
                                                         <td>{{$data->gol_darah}} </td>
                                                         {{-- <td>{{ $data->rt->rt }} </td> --}}
                                                         <td>
-                                                            <form action="{{ route('rt.destroy', $data->id) }}"
+                                                            <form action="{{ route('penduduk.destroy', $data->id) }}"
                                                                 method="post">
                                                                 @csrf
                                                                 @method('delete')
-                                                                <a href="{{ route('rt.edit', $data->id) }}"
+                                                                <a href="{{ route('penduduk.edit', $data->id) }}"
                                                                     class="btn btn-sm btn-outline-success fa fa-pencil-square-o">
 
                                                                 </a> |
-                                                                <a href="{{ route('rt.show', $data->id) }}"
+                                                                <a href="{{ route('penduduk.show', $data->id) }}"
                                                                     class="btn btn-sm btn-outline-warning fa fa-eye">
 
                                                                 </a> |
@@ -100,7 +99,7 @@
                                             </table>
                                         </div>
                                         <div>
-                                            <a href="{{ route('rt.create') }}" class="btn btn-sm btn-primary"
+                                            <a href="{{ route('penduduk.create') }}" class="btn btn-sm btn-primary"
                                                 style="float: right">
                                                 Tambah Data
                                             </a>
