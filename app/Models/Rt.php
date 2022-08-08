@@ -23,6 +23,10 @@ class Rt extends Model
     {
         return $this->hasMany(Ronda::class,'id_rt');
     }
+    public function jadwal()
+    {
+        return $this->hasMany(Jadwal::class,'id_rt');
+    }
     public function kegiatan()
     {
         return $this->hasMany(kegiatan::class,'id_rt');

@@ -5,8 +5,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RtController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RondaController;
+use App\Http\Controllers\JadwalController;
 use App\Http\Controllers\KegiatanController;
 use App\Http\Controllers\PendudukController;
+use App\Http\Controllers\HalamanUserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,7 +22,7 @@ use App\Http\Controllers\PendudukController;
 */
 
 Route::get('/', function () {
-    return view('auth.login');
+    return view('user.beranda');
 });
 
 Auth::routes();
@@ -45,5 +47,8 @@ Route::group(['prefix' => 'admin-rt'], function () {
         return view('admin.rt.index');
     });
     Route::resource('/penduduk', PendudukController::class);
-    // Route::resource('/berita', BeritaController::class);
+    Route::resource('/jadwal', JadwalController::class);
 });
+
+
+Route::get('/halamanrt',[HalamanUserController::class,'rt']);

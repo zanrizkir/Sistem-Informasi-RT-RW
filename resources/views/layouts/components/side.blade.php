@@ -69,11 +69,11 @@
                         <span>Tabel Penduduk</span></a>
                 </li>
                 <li>
-                    <a href="{{ route('ronda.index') }}"><i class="fa fa-shield blue2_color"></i>
+                    <a href="{{ route('jadwal.index') }}"><i class="fa fa-shield blue2_color"></i>
                         <span>Tabel Ronda</span></a>
                 </li>
                 <li>
-                    <a href="{{ route('kegiatan.index') }}"><i class="fa fa-info yellow_color"></i>
+                    <a href="#"><i class="fa fa-info yellow_color"></i>
                         <span>Tabel Informasi</span></a>
                 </li>
             </ul>

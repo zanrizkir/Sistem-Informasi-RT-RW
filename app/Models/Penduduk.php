@@ -12,6 +12,9 @@ class Penduduk extends Model
      public function rt() {
         return $this->belongsTo(Rt::class,'id_rt');
     }
+     public function jadwal() {
+        return $this->belongsTo(Jadwal::class,'id_penduduk');
+    }
     public function foto()
     {
         if ($this->foto && file_exists(public_path('image/penduduk/' . $this->foto))) {

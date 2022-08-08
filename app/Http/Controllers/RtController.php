@@ -20,8 +20,7 @@ class RtController extends Controller
         // $penduduk = Penduduk::where('id_rt', auth()->user()->rt->id)->get();
         // return view('penduduk.index', compact('penduduk'));
         $rt = Rt::all();
-return view('admin.rt.index', compact('rt'));
-
+        return view('admin.rt.index', compact('rt'));
     }
 
     /**
@@ -167,12 +166,19 @@ return view('admin.rt.index', compact('rt'));
      * @param  \App\Models\Rt  $rt
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Rt $rt)
+    public function destroy($id)
     {
+        if (Rt::where('id_rt', $id)->count() > 0) {
+            return redirect()
+                ->route('rt.index')
+                ->with('fail', 'Gagal menghapus data rt');
+        }
+
+        $rt = Rt::findOrFail($id);
         $rt->delete();
-        $user = User::find($rt->id_user)->delete();
+
         return redirect()
             ->route('rt.index')
-            ->with('success', 'Data berhasil dihapus!');
+            ->with('success', 'Data rt berhasil dihapus!');
     }
 }

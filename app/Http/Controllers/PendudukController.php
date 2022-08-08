@@ -17,7 +17,6 @@ class PendudukController extends Controller
     public function index()
     {
         $penduduk = Penduduk::where('id_rt', auth()->user()->rt->id)->get();
-        // dd($penduduk);x
         return view('adminrt.penduduk.index', ['penduduk' => $penduduk]);
     }
 

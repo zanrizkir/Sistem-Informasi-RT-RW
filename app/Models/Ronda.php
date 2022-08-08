@@ -13,6 +13,10 @@ class Ronda extends Model
     {
         return $this->belongsTo(Rt::class, 'id_rt');
     }
+    public function dataronda()
+    {
+        return $this->belongsTo(DataRonda::class, 'id_data_ronda');
+    }
     public function image()
     {
         if ($this->image && file_exists(public_path('image/rt/' . $this->image))) {
