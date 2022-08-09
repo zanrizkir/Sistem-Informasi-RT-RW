@@ -8,13 +8,20 @@ use Illuminate\Database\Eloquent\Model;
 class Jadwal extends Model
 {
     use HasFactory;
-    public function rt() {
-        return $this->belongsTo(Rt::class,'id_rt');
+
+    protected $guarded = ['id'];
+    public function rt()
+    {
+        return $this->belongsTo(Rt::class, 'id_rt');
     }
-    public function penduduk() {
-        return $this->hasMany(Penduduk::class,'id_penduduk');
+
+    public function penduduk()
+    {
+        return $this->hasMany(Penduduk::class, 'id_penduduk');
     }
-    public function dataronda() {
-        return $this->hasMany(Penduduk::class,'id_data_ronda');
+
+    public function ronda()
+    {
+        return $this->belongsTo(Ronda::class, 'id_ronda');
     }
 }

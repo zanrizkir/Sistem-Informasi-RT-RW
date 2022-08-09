@@ -48,7 +48,10 @@ Route::group(['prefix' => 'admin-rt'], function () {
     });
     Route::resource('/penduduk', PendudukController::class);
     Route::resource('/jadwal', JadwalController::class);
+
+    Route::get('/jadwal/ronda/{ronda}', [JadwalController::class, 'ronda']);
+
+    Route::get('/jadwal/create', [JadwalController::class, 'create']);
 });
 
-
-Route::get('/halamanrt',[HalamanUserController::class,'rt']);
+Route::get('/halamanrt', [HalamanUserController::class, 'rt']);

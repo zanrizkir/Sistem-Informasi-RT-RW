@@ -10,14 +10,14 @@
     <div class="collapse navbar-collapse" id="navbarCollapse">
         <div class="navbar-nav ms-auto py-3 py-lg-0">
             <a href="beranda" class="nav-item nav-link active">Beranda</a>
-            @foreach($rt as $data)
+            {{-- @foreach($rt as $data)
             <div class="nav-item dropdown">
                 <a href="[{ route('rt.show', $data->id)}]" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">RT {{$data->rt}}</a>
                 
             @endforeach
             </div>
             <a href="service.html" class="nav-item nav-link">Our Services</a>
-            <a href="contact.html" class="nav-item nav-link">Contact Us</a>
+            <a href="contact.html" class="nav-item nav-link">Contact Us</a> --}}
         </div>
     </div>
 </nav>

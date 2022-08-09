@@ -16,9 +16,16 @@ class CreateJadwalsTable extends Migration
         Schema::create('jadwals', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('id_ronda');
-            $table->foreign('id_ronda')->references('id')->on('rondas');
-            $table->unsignedBigInteger('id_data_ronda');
-            $table->foreign('id_data_ronda')->references('id')->on('data_rondas');
+            $table->unsignedBigInteger('id_penduduk');
+            $table
+                ->foreign('id_ronda')
+                ->references('id')
+                ->on('rondas');
+            $table
+                ->foreign('id_penduduk')
+                ->references('id')
+                ->on('penduduks');
+            $table->enum('hari', ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu']);
             $table->timestamps();
         });
     }
